@@ -73,3 +73,34 @@ ub/downloads/**
 *.bak
 _old/
 _archive/
+
+# Exclude entire image directories
+images/
+**/images/
+*/images/*
+
+# But allow specific image folders we might need later
+!images/icons/
+!images/ui/
+!images/logos/
+
+# Exclude all media content
+ub/media/
+ub/downloads/
+**/audio/
+**/video/
+
+# Exclude large files regardless of location
+**/*.jpg
+**/*.jpeg
+**/*.png
+**/*.gif
+**/*.bmp
+**/*.tiff
+**/*.ico
+**/*.svg
+**/*.pdf
+
+# But allow small specific images if needed later
+!images/icons/*.png
+!images/logos/*.svg
