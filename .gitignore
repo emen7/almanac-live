@@ -63,7 +63,6 @@ ub/audio/        # Ignore audio files
 # Exclude potential large file directories
 ub/media/**
 ub/downloads/**
-**/images/large/**
 **/audio/**
 **/video/**
 
@@ -74,33 +73,25 @@ ub/downloads/**
 _old/
 _archive/
 
-# Exclude entire image directories
-images/
-**/images/
-*/images/*
+# ALLOW the reorganized images folder (uncomment these lines)
+!images/
+!images/**/*.jpg
+!images/**/*.jpeg
+!images/**/*.png
+!images/**/*.gif
+!images/**/*.svg
+!images/**/*.ico
 
-# But allow specific image folders we might need later
-!images/icons/
-!images/ui/
-!images/logos/
-
-# Exclude all media content
-ub/media/
-ub/downloads/
-**/audio/
-**/video/
-
-# Exclude large files regardless of location
-**/*.jpg
-**/*.jpeg
-**/*.png
-**/*.gif
-**/*.bmp
-**/*.tiff
-**/*.ico
-**/*.svg
-**/*.pdf
-
-# But allow small specific images if needed later
-!images/icons/*.png
-!images/logos/*.svg
+# But still exclude very large media files
+**/*.mp4
+**/*.mov
+**/*.wmv
+**/*.avi
+**/*.flv
+**/*.mkv
+**/*.webm
+**/*.zip
+**/*.rar
+**/*.7z
+**/*.tar
+**/*.gz
