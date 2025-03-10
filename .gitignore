@@ -58,3 +58,18 @@ npm-debug.log*
 # For example:
 ub/images/*/     # Ignore image subdirectories in ub folder
 ub/audio/        # Ignore audio files
+
+# Project-specific ignores
+# Exclude potential large file directories
+ub/media/**
+ub/downloads/**
+**/images/large/**
+**/audio/**
+**/video/**
+
+# Backup files and temp files
+*.tmp
+*.temp
+*.bak
+_old/
+_archive/
