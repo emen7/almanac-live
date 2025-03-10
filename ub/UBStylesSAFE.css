@@ -1,0 +1,15 @@
+body {font-family: Verdana; font-size: 14px; color: #000000;}
+h1   {font-family: Arial;   font-size: 32px; color: #000000; text-align: center; font-style: italic; text-transform: none; font-weight: none;}
+h2   {font-family: Arial;   font-size: 28px; color: #000000; text-align: center; font-style: none;   text-transform: none; font-weight: none;}
+h3   {font-family: Arial;   font-size: 22px; color: #000000; text-align: center; font-style: none;   text-transform: none; font-weight: none;}
+h4   {font-family: Arial;   font-size: 18px; color: #000000; text-align: center; font-style: none;   text-transform: none; font-weight: none;}
+h5   {font-family: Arial;   font-size: 14px; color: #000000; text-align: center; font-style: none;   text-transform: none; font-weight: none;}
+h6   {font-family: Arial;   font-size: 12px; color: #000000; text-align: center; font-style: none;   text-transform: none; font-weight: none;}
+sup  {font-size: 9px;  color: #666666;}
+.ColItal {font-family: Verdana; font-size: 14px; color: #663333; font-style: italic;}
+.Colored {font-family: Verdana; font-size: 14px; color: #663333;}
+.ppg     {font-family: Arial;   font-size: 9px;  color: #999999;  vertical-align:top;}
+.super   {font-family: Arial;   font-size: 9px;  color: #000000;  vertical-align:top;}
+.head4   {font-family: Arial;   font-size: 14px; color: #000000;}
+.head5   {font-family: Arial;   font-size: 18px; color: #000000;}
+
