@@ -1,0 +1,106 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Dependency directories
+node_modules/
+jspm_packages/
+bower_components/
+
+# Build outputs
+dist/
+build/
+out/
+
+# Debug logs
+logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Large media files
+*.mp4
+*.mov
+*.wmv
+*.avi
+*.flv
+*.mkv
+*.webm
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Backup files
+*~
+*.bak
+*.backup
+*.old
+*.orig
+
+# Additional ignores for your project
+# Add any large directories that shouldn't be in version control
+# For example:
+ub/images/*/     # Ignore image subdirectories in ub folder
+ub/audio/        # Ignore audio files
+
+# Project-specific ignores
+# Exclude potential large file directories
+ub/media/**
+ub/downloads/**
+**/images/large/**
+**/audio/**
+**/video/**
+
+# Backup files and temp files
+*.tmp
+*.temp
+*.bak
+_old/
+_archive/
+
+# Exclude entire image directories
+images/
+**/images/
+*/images/*
+
+# But allow specific image folders we might need later
+!images/icons/
+!images/ui/
+!images/logos/
+
+# Exclude all media content
+ub/media/
+ub/downloads/
+**/audio/
+**/video/
+
+# Exclude large files regardless of location
+**/*.jpg
+**/*.jpeg
+**/*.png
+**/*.gif
+**/*.bmp
+**/*.tiff
+**/*.ico
+**/*.svg
+**/*.pdf
+
+# But allow small specific images if needed later
+!images/icons/*.png
+!images/logos/*.svg
