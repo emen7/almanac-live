@@ -1,0 +1,512 @@
+:root {
+  /* Light mode variables - monochrome with off-white */
+  --light-bg: #f4f2ed;
+  --light-text: #333333;
+  --light-accent: #666666;
+  --light-secondary: #777777;
+  --light-border: #d8d2c9;
+  --light-header-bg: #e9e6e1;
+  --light-table-alt: #eae7e2;
+  --light-date: #777777;
+  --light-button: #5a5a5a;
+
+  /* Dark mode variables - monochrome */
+  --dark-bg: #1a1a1a;
+  --dark-text: #d8d8d8;
+  --dark-accent: #a0a0a0;
+  --dark-secondary: #999999; /* Brightened from #777777 to match date text */
+  --dark-border: #3a3a3a;
+  --dark-header-bg: #222222;
+  --dark-table-alt: #252525;
+  --dark-date: #999999; /* Darkened from #b0b0b0 to match note text */
+  --dark-button: #808080;
+
+  /* Default to dark mode */
+  --bg-color: var(--dark-bg);
+  --text-color: var(--dark-text);
+  --accent-color: var(--dark-accent);
+  --secondary-color: var(--dark-secondary);
+  --border-color: var(--dark-border);
+  --header-bg-color: var(--dark-header-bg);
+  --table-alt-color: var(--dark-table-alt);
+  --date-color: var(--dark-date);
+  --button-color: var(--dark-button);
+
+  /* Font sizes */
+  --base-font-size: 16px;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.8rem;
+  --large-font-size: 1.125rem;
+}
+
+/* Light mode class */
+.light-mode {
+  --bg-color: var(--light-bg);
+  --text-color: var(--light-text);
+  --accent-color: var(--light-accent);
+  --secondary-color: var(--light-secondary);
+  --border-color: var(--light-border);
+  --header-bg-color: var(--light-header-bg);
+  --table-alt-color: var(--light-table-alt);
+  --date-color: var(--light-secondary);
+  --button-color: var(--light-button);
+}
+
+/* Font size classes */
+.font-small {
+  --base-font-size: 14px;
+}
+
+.font-medium {
+  --base-font-size: 16px;
+}
+
+.font-large {
+  --base-font-size: 18px;
+}
+
+body {
+  font-family: "Roboto", "Open Sans", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: var(--base-font-size);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container adjustments */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem; /* Reduced padding */
+}
+
+/* Main container specific styling */
+main.container {
+  padding-top: 0.5rem; /* Reduced top padding */
+  padding-bottom: 1rem;
+}
+
+.header {
+  background-color: var(--header-bg-color);
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.navigation {
+  display: flex;
+  gap: 1rem;
+}
+
+.navigation a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.navigation a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navigation a.active {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* Timeline grid layout - replacing table structure */
+.timeline-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* No top margin */
+  display: grid;
+  grid-template-columns: 120px minmax(300px, 1fr);
+  gap: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.timeline-header {
+  display: contents;
+}
+
+.timeline-header-cell {
+  background-color: var(--header-bg-color);
+  color: var(--accent-color);
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  position: sticky;
+  top: 0; /* Changed from 60px to 0 */
+  z-index: 10;
+}
+
+.timeline-row {
+  display: contents;
+}
+
+/* Fix alternating row background colors for pairs */
+.timeline-row:nth-child(4n + 2) .timeline-cell,
+.timeline-row:nth-child(4n + 3) .timeline-cell {
+  background-color: var(--bg-color);
+}
+
+.timeline-row:nth-child(4n + 4) .timeline-cell,
+.timeline-row:nth-child(4n + 5) .timeline-cell {
+  background-color: var(--table-alt-color);
+}
+
+/* Override for header row */
+.timeline-header-cell {
+  background-color: var(--header-bg-color) !important;
+}
+
+/* Timeline cell styling - reduced vertical spacing */
+.timeline-cell {
+  padding: 0.25rem 1rem; /* Reduced from 0.5rem top/bottom */
+  min-height: 1.5rem; /* Reduced from 2rem */
+  display: flex;
+  align-items: center;
+}
+
+.date-cell {
+  font-size: var(--smaller-font-size);
+  font-weight: 500;
+  color: var(--date-color);
+  padding-bottom: 0 !important;
+  padding-top: 0.35rem !important; /* Reduced from 0.5rem */
+  border-bottom: none;
+  align-items: flex-end;
+}
+
+.event-cell {
+  font-size: var(--base-font-size);
+  color: var(--text-color);
+  padding-top: 0.15rem !important; /* Reduced from 0.25rem */
+  padding-bottom: 0.35rem !important; /* Reduced from 0.5rem */
+  border-bottom: none;
+  align-items: flex-start;
+  padding-left: 2rem !important;
+}
+
+/* Make reference button cells same height with reduced spacing */
+.timeline-row .ref-column {
+  grid-row: span 2;
+}
+
+/* Reference button styling - more subtle with black text */
+.ref-button {
+  display: inline-block;
+  /* Lighter grayscale gradient that works with black text */
+  background: linear-gradient(145deg, #e0e0e0, #c8c8c8);
+  color: #333333; /* Dark text color */
+  border-radius: 20px;
+  padding: 0.3rem 0.7rem; /* Slightly smaller padding */
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-decoration: none;
+  /* Subtler shadow */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Dark mode specific button styling - lighter than row background with light text */
+body:not(.light-mode) .ref-button {
+  background: linear-gradient(145deg, #383838, #303030);
+  color: #d8d8d8; /* Light text on dark button */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.ref-button:hover {
+  background: linear-gradient(145deg, #e0e0e0, #d0d0d0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+body:not(.light-mode) .ref-button:hover {
+  background: linear-gradient(145deg, #444444, #383838);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.ref-button:active {
+  background: linear-gradient(145deg, #c0c0c0, #d0d0d0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transform: translateY(1px);
+}
+
+body:not(.light-mode) .ref-button:active {
+  background: linear-gradient(145deg, #303030, #383838);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Light mode specific button styling */
+.light-mode .ref-button {
+  background: linear-gradient(145deg, #d8d8d8, #c0c0c0);
+  color: #333333;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.light-mode .ref-button:hover {
+  background: linear-gradient(145deg, #e0e0e0, #d0d0d0);
+}
+
+.light-mode .ref-button:active {
+  background: linear-gradient(145deg, #c8c8c8, #d8d8d8);
+}
+
+/* Settings toggle - floating gear icon with improved visibility */
+.settings-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(60, 60, 60, 0.7);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+
+/* Light mode specific gear styling */
+.light-mode .settings-toggle {
+  background-color: rgba(120, 120, 120, 0.7);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.settings-toggle:hover {
+  background-color: rgba(80, 80, 80, 0.9);
+}
+
+.light-mode .settings-toggle:hover {
+  background-color: rgba(100, 100, 100, 0.9);
+}
+
+.settings-toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+.light-mode .settings-toggle svg {
+  fill: #ffffff; /* White icon in light mode for better contrast */
+}
+
+.settings-toggle:hover svg {
+  transform: rotate(30deg);
+}
+
+.settings-menu {
+  position: fixed;
+  top: 4rem;
+  right: 1rem;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px; /* Increased roundness */
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  padding: 1.25rem;
+  min-width: 200px;
+  z-index: 101;
+  display: none;
+  overflow: hidden; /* Ensure content doesn't spill outside rounded corners */
+}
+
+.settings-menu.active {
+  display: block;
+}
+
+.settings-group {
+  margin-bottom: 1rem;
+}
+
+.settings-group:last-child {
+  margin-bottom: 0;
+}
+
+.settings-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-right: 10px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--secondary-color);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--accent-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.font-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.font-btn {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.font-btn.active {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  border-color: var(--accent-color);
+}
+
+.note {
+  font-style: italic;
+  color: var(--secondary-color);
+  font-size: var(--small-font-size);
+  margin: 1rem 0;
+}
+
+.reference {
+  font-size: var(--small-font-size);
+  color: var (--secondary-color);
+}
+
+.reference a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.reference a:hover {
+  text-decoration: underline;
+}
+
+/* Additional spacing adjustment for event pairs */
+.timeline-row:nth-child(even) {
+  margin-bottom: 0.2rem; /* Reduced from 0.5rem */
+}
+
+/* Responsive adjustments for timeline */
+@media (max-width: 768px) {
+  .timeline-container {
+    grid-template-columns: 90px minmax(200px, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-container {
+    grid-template-columns: 80px 1fr;
+    font-size: var(--small-font-size);
+  }
+
+  .timeline-cell {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .ref-button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .navigation {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+/* Title styling with direct connection to timeline */
+.tbl-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin: 0.5rem 0 0; /* Reduced top margin */
+  padding-bottom: 0.5rem; /* Add some padding instead of margin */
+  text-align: center;
+  line-height: 1.2;
+}
