@@ -1,0 +1,22 @@
+{
+    "name": "master-universe-almanac",
+    "version": "0.1.0",
+    "private": true,
+    "workspaces": [
+      "apps/*",
+      "packages/*"
+    ],
+    "scripts": {
+      "dev": "turbo run dev",
+      "build": "turbo run build",
+      "lint": "turbo run lint",
+      "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    },
+    "devDependencies": {
+      "turbo": "latest",
+      "prettier": "latest"
+    },
+    "engines": {
+      "node": ">=14.0.0"
+    }
+  }
