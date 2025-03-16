@@ -1,5 +1,9 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
+
+interface LayoutProps {
+  children: ReactNode;
+}
 
 const Container = styled.div`
   max-width: 1200px;
@@ -7,7 +11,7 @@ const Container = styled.div`
   padding: 1rem;
 `;
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return <Container>{children}</Container>;
 };
 
